@@ -24,12 +24,12 @@ void main() async {
       description: "Workpass för varje dag",
       exercises: {});
 
-  // Print out the recipe's name
+  // Print out the workpass's name
   print(everyDayWorkpass.name);
 
-  // Use the WorkpassEditingManager to start editing the recipe
+  // Use the WorkpassEditingManager to start editing the workpass
 
-  // Add exercises and their amounts to the recipe
+  // Add exercises and their amounts to the workpass
   everyDayWorkpass.addExercise(pushUpExercise,
       ExerciseData(repeats: 10, restMin: 2, antalSets: 3, weight: 0));
   everyDayWorkpass.addExercise(rowingExercise, 
@@ -40,13 +40,13 @@ void main() async {
   
   // Finish editing
 
-  // Use the WorkpassRepository to store the recipe
+  // Use the WorkpassRepository to store the workpass
   bool isCreated = repository.create(everyDayWorkpass);
   print('Workpass added to repository: $isCreated');
 
   // Read it back
   Workpass? readWorkpass = repository.read("001");
-  print('Read recipe description: ${readWorkpass?.description}');
+  print('Read workpass description: ${readWorkpass?.description}');
 
   // Update it
   Workpass updatedWorkpass = Workpass(
@@ -57,7 +57,7 @@ void main() async {
   Workpass updatedVersion = repository.update(updatedWorkpass);
   print('Updated workpass description: ${updatedVersion.description}');
 
-  // List all the recipes in the repository
+  // List all the workpass in the repository
   List<Workpass> allWorkpasss = repository.list();
   print('Number of workpasses in repository: ${allWorkpasss.length}');
 

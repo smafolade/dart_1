@@ -17,7 +17,7 @@ void main() {
 
     test('Edit Workpass', () {
       Workpass workpass = Workpass(
-          id: "1000",
+          id: "001",
           name: "workpass för varje dag",
           description: "enkla övningar för varje dag",
           exercises: {});
@@ -41,7 +41,7 @@ void main() {
 
     test('Add Workpass to Repository', () {
       var workpass = Workpass(
-          id: "1001",
+          id: "002",
           name: "situps",
           description: "enkla situps",
           exercises: {});
@@ -50,15 +50,15 @@ void main() {
     });
 
     test('Read Workpass from Repository', () {
-      var workpass = repository.read("1001");
-      expect(workpass?.id, equals("1001"));
+      var workpass = repository.read("002");
+      expect(workpass?.id, equals("002"));
       expect(workpass?.name, equals("situps"));
       expect(workpass?.description, equals("enkla situps"));
     });
 
     test('Update Workpass in Repository', () {
       var updatedWorkpass = Workpass(
-          id: "1001",
+          id: "002",
           name: "situps",
           description: "mycket enkla situps",
           exercises: {});
@@ -67,9 +67,9 @@ void main() {
     });
 
     test('Delete Workpass from Repository', () {
-      bool deleted = repository.delete("1001");
+      bool deleted = repository.delete("002");
       expect(deleted, isTrue);
-      var workpass = repository.read("1001");
+      var workpass = repository.read("002");
       expect(workpass, isNull);
     });
 
